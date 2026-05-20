@@ -29,6 +29,34 @@ npm run preview
 
 Edit `src/data/artworks.js` to update the artist name, artwork images, collection details, and contact information. Replace Unsplash placeholder URLs with your own artwork photography.
 
+## Deploy to GitHub
+
+The project includes a GitHub Actions workflow (`.github/workflows/deploy.yml`) that publishes to **GitHub Pages** on every push to `main`.
+
+### One-time setup
+
+1. Log in to GitHub (if needed):
+
+   ```bash
+   gh auth login -h github.com -p https -w
+   ```
+
+2. Create the repo and push:
+
+   ```bash
+   ./scripts/deploy-to-github.sh
+   ```
+
+   Or manually:
+
+   ```bash
+   gh repo create artist-portfolio --public --source=. --remote=origin --push
+   ```
+
+3. In the repo on GitHub, go to **Settings → Pages** and set **Source** to **GitHub Actions** (if not already enabled).
+
+The live site will be at `https://<your-username>.github.io/artist-portfolio/`.
+
 ## Stack
 
 - React 18
