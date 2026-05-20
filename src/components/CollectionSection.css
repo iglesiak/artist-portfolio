@@ -1,0 +1,105 @@
+.collection-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.collection-section--reverse {
+  direction: rtl;
+}
+
+.collection-section--reverse > * {
+  direction: ltr;
+}
+
+.collection-section__image-link {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.collection-section__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.collection-section__image-link:hover .collection-section__image {
+  transform: scale(1.04);
+}
+
+.collection-section__year {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.collection-section__name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  margin: 0.5rem 0 1.25rem;
+}
+
+.collection-section__name a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.collection-section__name a:hover {
+  color: var(--color-accent);
+}
+
+.collection-section__description {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+  max-width: 420px;
+}
+
+.collection-section__count {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.collection-section__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.collection-section__cta:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 900px) {
+  .collection-section,
+  .collection-section--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 2rem;
+    padding: 3.5rem 0;
+  }
+
+  .collection-section__image-link {
+    aspect-ratio: 16 / 10;
+  }
+}

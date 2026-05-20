@@ -1,0 +1,125 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2.5rem;
+  transition: background 0.4s ease, padding 0.3s ease, backdrop-filter 0.4s ease;
+}
+
+.nav--scrolled {
+  background: rgba(26, 22, 18, 0.92);
+  backdrop-filter: blur(12px);
+  padding: 1rem 2.5rem;
+}
+
+.nav__logo {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav:not(.nav--scrolled) .nav__logo {
+  color: #f5f0e8;
+}
+
+.nav__links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav__links a {
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  transition: color 0.2s;
+}
+
+.nav:not(.nav--scrolled) .nav__links a {
+  color: rgba(245, 240, 232, 0.75);
+}
+
+.nav__links a:hover,
+.nav__links a.active {
+  color: var(--color-accent);
+}
+
+.nav:not(.nav--scrolled) .nav__links a:hover,
+.nav:not(.nav--scrolled) .nav__links a.active {
+  color: #f5f0e8;
+}
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.3s;
+}
+
+.nav:not(.nav--scrolled) .nav__toggle {
+  color: #f5f0e8;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .nav__toggle {
+    display: flex;
+    z-index: 101;
+  }
+
+  .nav__links {
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: rgba(26, 22, 18, 0.98);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .nav--open .nav__links {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav--open .nav__links a {
+    color: var(--color-text);
+    font-size: 1rem;
+  }
+
+  .nav--open .nav__toggle span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .nav--open .nav__toggle span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+}
